@@ -1,0 +1,113 @@
+.character-grid {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.grid-cell {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    user-select: none;
+    touch-action: none;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.grid-cell.selected {
+    background-color: #ff4d4f;
+    color: white;
+    transform: scale(0.95);
+}
+
+.lines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.connection-line {
+    stroke-width: 3;
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.connection-line.valid {
+    stroke: #1890ff;
+}
+
+.connection-line.invalid {
+    stroke: #ff4d4f;
+}
+
+.connection-line.current {
+    stroke: #1890ff;
+    stroke-dasharray: 5;
+    animation: dash 1s linear infinite;
+}
+
+.arrow-head {
+    fill: #1890ff;
+}
+
+.arrow-head.invalid {
+    fill: #ff4d4f;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -10;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .grid-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .grid-row {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .grid-row {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+}

@@ -1,0 +1,28 @@
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+}
